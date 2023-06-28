@@ -1,13 +1,22 @@
 package hello.core.member;
 
+import hello.core.AppConfig;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
 public class MemberServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    MemberService memberService;
+
+    @BeforeEach
+    public  void beforEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     void  join(){
+
     //given
         Member member = new Member(2L , "memberB" , Grade.VIP);
     //when
